@@ -19,7 +19,7 @@ from django.urls import path
 from userAuth import views
 
 urlpatterns = [
-    # path('', views.index),
+    path('', views.index),
     path('users/all', views.get_Users),
     path('users/add', views.add_User),
     path('admin/', admin.site.urls),

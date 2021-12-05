@@ -8,8 +8,8 @@ from userAuth.models import User
 
 # Create your views here.
 def index(request):
-    response = json.dumps([{}])
-    return HttpResponse( "{}", content_type='text/json')
+    response = json.dumps({'Hello':'world'})
+    return HttpResponse( response, content_type='application/json')
 
 def get_Users(request):
     if request.method == 'GET':
@@ -20,7 +20,7 @@ def get_Users(request):
             response = json.dumps([{'Error': 'Error'}])
     else:
         response = json.dumps([{'Error': 'bad reqeust type'}])
-    return HttpResponse(response, content_type='text/json')
+    return HttpResponse(response, content_type='application/json')
 
 @csrf_exempt
 def add_User(request):
@@ -37,4 +37,4 @@ def add_User(request):
             response = json.dumps([{'Error': 'Error'}])
     else:
         response = json.dumps([{'Error': 'bad request type'}])
-    return HttpResponse(response, content_type='text/json')
+    return HttpResponse(response, content_type='application/json')
