@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('userAuth', '0004_alter_fraudcheck_time'),
+        ('userAuth', '0003_fraudcheck.py'),
     ]
 
     operations = [
