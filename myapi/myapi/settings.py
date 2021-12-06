@@ -32,6 +32,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
 
+TIME_ZONE = 'UTC'
+USE_TZ = True
+
 # Application definition
 
 INSTALLED_APPS = [
