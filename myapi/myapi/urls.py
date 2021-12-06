@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.index),
     path('users/all', views.get_Users),
     path('users/add', views.add_User),
+    path('fraud/check', views.handleFraudCheck),
     path('admin/', admin.site.urls),
 ]
