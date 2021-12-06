@@ -17,7 +17,7 @@ def get_Users(request):
             users = User.objects.all()
             response = serializers.serialize("json", users)
         except:
-            response = json.dumps({'Error': sys.exc_info()[0]})
+            response = json.dumps({'Error': str(sys.exc_info()[0])})
     else:
         response = json.dumps({'Error': 'bad reqeust type'})
     return HttpResponse(response, content_type='application/json')
@@ -34,7 +34,7 @@ def add_User(request):
             newUser.save()
             response = json.dumps({'Sucess':'User Added'})
         except:
-            response = json.dumps({'Error': sys.exc_info()[0]})
+            response = json.dumps({'Error': str(sys.exc_info()[0])})
     else:
         response = json.dumps({'Error': 'bad request type'})
     return HttpResponse(response, content_type='application/json')
