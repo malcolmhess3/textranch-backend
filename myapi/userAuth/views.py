@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 from userAuth.models import User
-
+import sys
 
 # Create your views here.
 def index(request):
@@ -16,8 +16,8 @@ def get_Users(request):
         try:
             users = User.objects.all()
             response = serializers.serialize("json", users)
-        except Exception as e:
-            response = json.dumps({'Error': e})
+        except:
+            response = json.dumps({'Error': sys.exc_info()[0]})
     else:
         response = json.dumps({'Error': 'bad reqeust type'})
     return HttpResponse(response, content_type='application/json')
@@ -33,8 +33,8 @@ def add_User(request):
         try:
             newUser.save()
             response = json.dumps({'Sucess':'User Added'})
-        except Exception as e:
-            response = json.dumps({'Error': e})
+        except:
+            response = json.dumps({'Error': sys.exc_info()[0]})
     else:
         response = json.dumps({'Error': 'bad request type'})
     return HttpResponse(response, content_type='application/json')
