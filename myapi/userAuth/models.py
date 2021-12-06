@@ -9,4 +9,4 @@ class User(models.Model):
 class FraudCheck(models.Model):
     fingerprint = models.CharField(max_length=100)
     ipaddr = models.CharField(max_length=100)
-    time = models.DateTimeField()
+    time = models.CharField(max_length=100)

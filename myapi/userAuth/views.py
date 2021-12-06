@@ -54,7 +54,7 @@ def handleFraudCheck(request):
         elif onlyIp:
             response = makeResponse("Probably already credited to IP", onlyIp)
         else:
-            newFraudCheck = FraudCheck(time=datetime.datetime.now(),  **payload)
+            newFraudCheck = FraudCheck(time=datetime.datetime.now().strftime("%d/%m/%y %H:%M"),  **payload)
             try:
                 newFraudCheck.save()
                 response = json.dumps({'Sucess':'Check'})
@@ -65,4 +65,4 @@ def handleFraudCheck(request):
     return HttpResponse(response, content_type='application/json')
 
 def makeResponse(info, q):
-    return json.dumps({"creditStatus": info, "user": [[x.fingerprint, x.ipaddr, x.time.strftime("%d/%m/%y %H:%M")] for x in q]})
+    return json.dumps({"creditStatus": info, "user": [[x.fingerprint, x.ipaddr, x.time] for x in q]})
