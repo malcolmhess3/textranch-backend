@@ -57,7 +57,7 @@ def handleFraudCheck(request):
             newFraudCheck = FraudCheck(time=datetime.datetime.now().strftime("%d/%m/%y %H:%M"),  **payload)
             try:
                 newFraudCheck.save()
-                response = json.dumps({'Sucess':'Check'})
+                response = json.dumps({"creditStatus": "uncredited", "user": []})
             except:
                 response = json.dumps({'Error': str(sys.exc_info()[0])})
     else:
