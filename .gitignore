@@ -1,4 +1,5 @@
 /env
+/envplz
 __pycache__
 # not needed if you're using Postgres locally
 db.sqlite3          

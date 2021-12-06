@@ -1,1 +1,1 @@
-web: gunicorn myapi.myapi.wsgi
+web: cd myapi && gunicorn myapi.wsgi
